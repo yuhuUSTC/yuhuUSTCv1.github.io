@@ -1,0 +1,4 @@
+.paper > pre {
+    width: 560px;
+    overflow: auto;
+}
