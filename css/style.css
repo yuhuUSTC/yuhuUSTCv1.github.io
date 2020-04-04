@@ -1,5 +1,5 @@
 .paper > pre {
-    width: 480px;
+    width: 450px;
     overflow: auto;
 }
 
@@ -9,4 +9,18 @@
 
 td > img {
     width: 250px;
+}
+
+@media (max-width:760px) {
+    .two > img {
+        display: none;
+    }
+    .tdimg {
+        display: none;
+        width: 0%;
+        padding: 0;
+    }
+    .tdcontent {
+        width: 100%;
+    }
 }
