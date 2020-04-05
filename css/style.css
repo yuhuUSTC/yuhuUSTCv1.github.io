@@ -12,7 +12,7 @@ td > img {
 }
 
 @media (max-width:760px) {
-    .two > img {
+    td > img {
         display: none;
     }
     .tdimg {
