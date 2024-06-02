@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="An Image is Worth 32 Tokens for Reconstruction and Generation">
+  <meta name="keywords" content="Image Tokenization, Image Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>An Image is Worth 32 Tokens for Reconstruction and Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" 🥥>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://yucornetto.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://xdeng7.github.io/coconut.github.io/">
+            COCONut
+          </a>
+          <a class="navbar-item" href="https://beckschen.github.io/vitamin">
+            ViTamin
+          </a>
+          <a class="navbar-item" href="https://github.com/bytedance/fc-clip">
+            FC-CLIP
+          </a>
+          <a class="navbar-item" href="https://github.com/bytedance/OmniScient-Model">
+            OSM
+          </a>
+          <a class="navbar-item" href="https://github.com/TACJu/MaXTron">
+            MaXTron
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-3 publication-title">An Image is Worth 32 Tokens for Reconstruction and Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yucornetto.github.io/">Qihang Yu</a><sup>1*</sup>,</span>
+            <span class="author-block">
+                <a href="https://dvl.in.tum.de/team/weber/">Mark Weber</a><sup>1,2*</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/xueqingdeng7/home">Xueqing Deng</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://xiaohuishen.github.io/">Xiaohui Shen</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://cvg.cit.tum.de/members/cremers">Daniel Cremers</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="http://liangchiehchen.com/">Liang-Chieh Chen</a><sup>1</sup></span>
+           
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ByteDance, </span>
+            <span class="author-block"><sup>2</sup>Technical University of Munich</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="http://arxiv.org/pdf/2404.08639.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/2404.08639"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/bytedance/coconut_cvpr2024"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming soon)</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <img src="./static/images/titok_teaser.png"
+                class="teaser"
+                alt="teaser image."/>
+      <img src="./static/images/speed_vs_perf.png"
+                class="teaser"
+                alt="teaser image."/>
+      <h2 class="subtitle has-text-centered">
+       TiTok is a compact 1D tokenizer which can represent an image with as few as <b>32 discrete tokens</b>. As a result, it leads to a substantial speed-up on the sampling process (e.g., <b>410<span> &#215;</span> faster</b> than DiT-XL/2) while obtaining a competitive generation quality.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-big", style="margin-top: -35px">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <br>
+        <br>
+        <h2 class="title is-3">🔥 Highlights</h2>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-five-fifths">
+        <p style="font-size: 20px;">
+        1. We introduce TiTok, a novel 1D image tokenization framework that breaks grid constraints existing in 2D tokenization methods, leading to a <span style="color: rgb(199, 9, 9)"><b>much more flexible and compact image latent representation.</b></span>
+        </p>
+        <p style="font-size: 20px;">
+        2. The proposed TiTok can tokenize an 256<span> &#215; </span>256 .</b></span> image into as few as <span style="color:rgba(14, 122, 41, 0.904) " ><b>32 discrete tokens</b></span>, leading to <span style="color: rgb(131, 102, 7)"><b>hundreds times speed up</b></span> in generation process, while maintaining state-of-the-art generation qualit.
+        </p>
+        <p style="font-size: 20px;">
+        3. We conduct a series of experiments to probe the properties of rarely studied 1D image tokenization, paving the path towards <span style="color: rgb(4, 23, 107)"><b>compact latent space for efficient and effective image representation.</b></span>
+        </p>
+        <br><br>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advancements in generative models have highlighted the crucial role of
+            image tokenization in the efficient synthesis of high-resolution images. Tokenization, which transforms images into latent representations, reduces computational
+            demands compared to directly processing pixels and enhances the effectiveness
+            and efficiency of the generation process. Prior methods, such as VQGAN, typically
+            utilize 2D latent grids with fixed downsampling factors. However, these 2D tokenizations face challenges in managing the inherent redundancies present in images,
+            where adjacent regions frequently display similarities. To overcome this issue,
+            we introduce <b>T</b>ransformer-based 1-D<b>i</b>mensional <b>Tok</b>enizer (TiTok), an innovative
+            approach that tokenizes images into 1D latent sequences. TiTok provides a more
+            compact latent representation, yielding substantially more efficient and effective
+            representations than conventional techniques. For example, a 256 <span>&#215;</span> 256 <span>&#215;</span> 3 image
+            can be reduced to just <b>32</b> discrete tokens, a significant reduction from the 256 or
+            1024 tokens obtained by prior methods. Despite its compact nature, TiTok achieves
+            competitive performance to state-of-the-art approaches. Specifically, using the
+            same generator framework, TiTok attains <b>1.97</b> gFID, outperforming MaskGIT
+            baseline significantly by 4.21 at ImageNet 256 <span>&#215;</span> 256 benchmark. The advantages
+            of TiTok become even more significant when it comes to higher resolution. At
+            ImageNet 512 <span>&#215;</span> 512 benchmark, TiTok not only outperforms state-of-the-art diffusion model DiT-XL/2 (gFID 2.74 vs. 3.04), but also reduces the image tokens
+            by <b>64<span>&#215;</span></b>, leading to <b>410<span>&#215;</span> faster</b> generation process. Our best-performing variant
+            can significantly surpasses DiT-XL/2 (gFID <b>2.13</b> vs. 3.04) while still generating
+            high-quality samples <b>74<span>&#215;</span> faster</b>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!--/ Abstract. -->
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> TiTok Framework Overview</h2>
+      </div>
+    </div>
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <div class="column is-centered ">
+      <img src="./static/images/titok_framework.png"
+                class="framework-image"
+                alt="framework overview image."/>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> 1D Tokenization Property Probing Experiments</h2>
+      </div>
+    </div>
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <div class="column is-centered ">
+      <img src="./static/images/preliminary.png"
+                class="preliminary-image"
+                alt="preliminary image."/>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> Main Experiment Results</h2>
+      </div>
+    </div>
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <div class="column is-centered ">
+      <img src="./static/images/exp_256.png"
+                class="exp256-image"
+                alt="exp256 image."/>
+      <img src="./static/images/exp_512.png"
+                class="exp512-image"
+                alt="exp512 image."/>
+    </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> Visualization</h2>
+      </div>
+    </div>
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <div class="column is-centered ">
+      <img src="./static/images/recon_w_model_size_token_num.png"
+                class="recon-analysis-image"
+                alt="recon analysis image."/>
+      <img src="./static/images/random_vis_l32.png"
+                class="random-vis-image"
+                alt="random vis image."/>
+    </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{yu2024an,
+  author    = {Qihang Yu and Mark Weber and Xueqing Deng and Xiaohui Shen and Daniel Cremers and Liang-Chieh Chen},
+  title     = {An Image is Worth 32 Tokens for Reconstruction and Generation},
+  journal   = {arXiv preprint},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://drive.google.com/file/d/1QgiG-X15kUGUMikNBg5MSROMgHvc-GhG/view?usp=drive_link">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
