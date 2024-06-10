@@ -167,13 +167,17 @@
 <section class="hero teaser">
   <div class="container is-max-widescreen">
     <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/images/titok_teaser_animate.mp4"
+                type="video/mp4">
+      </video>
       <h2 class="subtitle has-text-centered">
         TiTok is a compact 1D tokenizer which can represent an image with as few as <b>32 discrete tokens</b>. As a result, it leads to a substantial speed-up on the sampling process (e.g., <b>410<span> &#215;</span> faster</b> than DiT-XL/2) while obtaining a competitive generation quality.
       </h2>
       <br>
-      <img src="./static/images/titok_teaser.png"
+      <!-- <img src="./static/images/titok_teaser.png"
                 class="teaser"
-                alt="teaser image."/>
+                alt="teaser image."/> -->
       <img src="./static/images/speed_vs_perf.png"
                 class="teaser"
                 alt="teaser image."/>
@@ -320,12 +324,26 @@
     <div class="columns is-centered ">
       <div class="column is-full-width">
         <div class="column is-centered ">
-          <img src="./static/images/recon_w_model_size_num_token.png"
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="./static/images/recon_w_model_size_num_token_animate.mp4"
+                    type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            We experiment with different number of latent tokens and tokenizer model size, finding that <b>scaling the tokenizer size is a promising pathway towards compact image latent representation.</b>
+          </h2>
+          <!-- <img src="./static/images/recon_w_model_size_num_token.png"
                     class="recon-analysis-image"
-                    alt="recon analysis image."/>
-          <img src="./static/images/random_vis_l32.png"
+                    alt="recon analysis image."/> -->
+          <!-- <img src="./static/images/random_vis_l32.png"
                     class="random-vis-image"
-                    alt="random vis image."/>
+                    alt="random vis image."/> -->
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="./static/images/gen_vis_random_animate.mp4"
+                    type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Visualization on the generated samples with TiTok-L-32.
+          </h2>
     </div>
     </div>
 </section>
