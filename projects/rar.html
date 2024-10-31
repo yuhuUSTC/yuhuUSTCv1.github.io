@@ -166,9 +166,13 @@
         RAR is a an autoregressive (AR) image generator with full compatibility to language modeling. It introduces a randomness annealing strategy with permuted objective <b>at no additional cost</b>, which enhances the model's ability to learn bidirectional contexts while leaving the autoregressive framework intact. RAR sets a FID score <b>1.48</b>, demonstrating state-of-the-art performance on ImageNet-256 benchmark and significantly outperforming prior AR image generators.
       </h2>
       <br>
-      <img src="./static/images/rar/perf_comp.png"
-                class="teaser is-centered"
-                alt="teaser image."/>
+      <div class="columns is-centered">
+        <div class="column is-full-width has-text-centered">
+          <img src="./static/images/rar/perf_comp.png"
+                    class="teaser is-centered"
+                    alt="teaser image."/>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -292,8 +296,8 @@
       </div>
     </div>
     <div class="columns is-centered ">
-      <div class="column is-full-width">
-        <div class="column is-centered ">
+      <div class="columns is-centered">
+        <div class="column is-full-width has-text-centered">
           <img src="./static/images/rar/fid.png"
                     class="exp256-image"
                     alt="exp256 image."/>
