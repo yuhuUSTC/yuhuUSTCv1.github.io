@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="An Image is Worth 32 Tokens for Reconstruction and Generation">
+        content="Autoregressive Image Generation with Continuous Frequency Progression">
   <meta name="keywords" content="Image Tokenization, Image Generation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>An Image is Worth 32 Tokens for Reconstruction and Generation</title>
+  <title>Autoregressive Image Generation with Continuous Frequency Progression</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -95,27 +95,23 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-3 publication-title">An Image is Worth 32 Tokens for Reconstruction and Generation</h1>
+          <h1 class="title is-3 publication-title">Autoregressive Image Generation with Continuous Frequency Progression</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://yucornetto.github.io/">Qihang Yu</a><sup>1*</sup>,</span>
+              <a href="https://yuhuustc.github.io/">Hu Yu</a><sup>1</sup>,</span>
             <span class="author-block">
-                <a href="https://dvl.in.tum.de/team/weber/">Mark Weber</a><sup>1,2*</sup>,</span>
+                <a href="https://luohao.site/">Hao Luo</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://sites.google.com/view/xueqingdeng7/home">Xueqing Deng</a><sup>1</sup>,</span>
+              <a href="https://jacobyuan7.github.io//">Hangjie Yuan</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://xiaohuishen.github.io/">Xiaohui Shen</a><sup>1</sup>,</span>
+              <a href="https://royrong.me/">Yu Rong</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://cvg.cit.tum.de/members/cremers">Daniel Cremers</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="http://liangchiehchen.com/">Liang-Chieh Chen</a><sup>1</sup></span>
+              <a href="https://bivlab123.github.io/">Feng Zhao</a><sup>1</sup>,</span>
            
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>ByteDance, </span>
-            <span class="author-block"><sup>2</sup>Technical University of Munich, </span>
-            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+            <span class="author-block"><sup>1</sup>Alibaba Group, DAMO Academy </span>
           </div>
 
           <div class="column has-text-centered">
@@ -193,17 +189,12 @@
         TiTok is a compact 1D tokenizer which can represent an 256<span> &#215;</span> 256 image with as few as <b>32 discrete tokens</b>. As a result, it leads to a substantial speed-up on the sampling process (e.g., <b>410<span> &#215;</span> faster</b> than DiT-XL/2) while obtaining a competitive generation quality.
       </h2>
       <br>
-      <!-- <img src="./static/images/titok_teaser.png"
-                class="teaser"
-                alt="teaser image."/> -->
       <img src="./static/images/speed_vs_perf.png"
                 class="teaser"
                 alt="teaser image."/>
     </div>
   </div>
 </section>
-
-
 
 <section class="hero is-light is-big", style="margin-top: -35px">
   <div class="container is-max-desktop">
@@ -219,15 +210,15 @@
       <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
         <p style="font-size: 20px;">
-        1. We introduce TiTok, a novel 1D image tokenization framework that breaks grid constraints existing in 2D tokenization methods, leading to a <span style="color: rgb(199, 9, 9)"><b>much more flexible and compact image latent representation.</b></span>
+        1. We propose the <span style="color: rgb(199, 9, 9)"><b>FAR paradigm, leveraging the spectral dependency of image data.</b></span> FAR fits the causality requirement of AR models and preserves the spatial locality of image data, while being more sampling efficient.
         </p>
         <br>
         <p style="font-size: 20px;">
-        2. The proposed TiTok can tokenize <b>a 256<span> &#215; </span>256 image</b> into as few as <span style="color:rgba(14, 122, 41, 0.904) " ><b>32 discrete tokens</b></span>, leading to <span style="color: rgb(131, 102, 7)"><b>a signigicant speed-up (hundreds times faster than diffusion models)</b></span> in generation process, while maintaining state-of-the-art generation quality.
+        2. We delve into the  <span style="color: rgb(131, 102, 7)"><b>instantiation of FAR with the continuous tokenizer</b></span>, introducing a series of techniques to address the optimization challenges and improve the efficiency of both training and inference. FAR only needs <b>10</b> steps to generate an image.
         </p>
         <br>
         <p style="font-size: 20px;">
-        3. We conduct a series of experiments to probe the properties of rarely studied 1D image tokenization, paving the path towards <span style="color: rgb(4, 23, 107)"><b>compact latent space for efficient and effective image representation.</b></span>
+        3. We demonstrate the effectiveness and scalability of FAR through comprehensive experiments  <span style="color: rgb(4, 23, 107)"><b>on ImageNet dataset and further extend FAR to text-to-image generation.</b></span>
         </p>
         <br><br>
       </div>
@@ -245,26 +236,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent advancements in generative models have highlighted the crucial role of
-            image tokenization in the efficient synthesis of high-resolution images. Tokenization, which transforms images into latent representations, reduces computational
-            demands compared to directly processing pixels and enhances the effectiveness
-            and efficiency of the generation process. Prior methods, such as VQGAN, typically
-            utilize 2D latent grids with fixed downsampling factors. However, these 2D tokenizations face challenges in managing the inherent redundancies present in images,
-            where adjacent regions frequently display similarities. To overcome this issue,
-            we introduce <b>T</b>ransformer-based 1-D<b>i</b>mensional <b>Tok</b>enizer (TiTok), an innovative
-            approach that tokenizes images into 1D latent sequences. TiTok provides a more
-            compact latent representation, yielding substantially more efficient and effective
-            representations than conventional techniques. For example, a 256 <span> &#215; </span> 256 <span> &#215; </span> 3 image
-            can be reduced to just <b>32</b> discrete tokens, a significant reduction from the 256 or
-            1024 tokens obtained by prior methods. Despite its compact nature, TiTok achieves
-            competitive performance to state-of-the-art approaches. Specifically, using the
-            same generator framework, TiTok attains <b>1.97</b> gFID, outperforming MaskGIT
-            baseline significantly by 4.21 at ImageNet 256 <span> &#215; </span> 256 benchmark. The advantages
-            of TiTok become even more significant when it comes to higher resolution. At
-            ImageNet 512 <span> &#215; </span> 512 benchmark, TiTok not only outperforms state-of-the-art diffusion model DiT-XL/2 (gFID 2.74 vs. 3.04), but also reduces the image tokens
-            by <b>64<span> &#215; </span></b>, leading to <b>410<span> &#215; </span> faster</b> generation process. Our best-performing variant
-            can significantly surpasses DiT-XL/2 (gFID <b>2.13</b> vs. 3.04) while still generating
-            high-quality samples <b>74<span> &#215; </span> faster</b>.
+            Autoregressive (AR) models for image generation typically adopt a two-stage paradigm of vector quantization and raster-scan "next-token prediction", inspired by its great success in language modeling. 
+            However, due to the huge modality gap, image autoregressive models may require a systematic reevaluation from two perspectives: tokenizer format and regression direction. 
+            In this paper, we introduce the frequency progressive autoregressive <b>FAR</b> paradigm and instantiate FAR with the continuous tokenizer. 
+            Specifically, we identify spectral dependency as the desirable regression direction for FAR, wherein higher-frequency components build upon the lower one to progressively construct a complete image. 
+            This design seamlessly fits the causality requirement for autoregressive models and preserves the unique spatial locality of image data.
+            Besides, we delve into the integration of FAR and the continuous tokenizer, introducing a series of techniques to address optimization challenges and improve the efficiency of training and inference processes. 
+            We demonstrate the efficacy of FAR through comprehensive experiments on the ImageNet dataset and verify its potential on text-to-image generation.
           </p>
         </div>
       </div>
@@ -280,7 +258,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3"> TiTok Framework Overview</h2>
+        <h2 class="title is-3"> FAR Framework Overview</h2>
       </div>
     </div>
     <div class="columns is-centered ">
@@ -295,26 +273,6 @@
 </div>
 </section>
 
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3"> 1D Tokenization Property Probing Experiments</h2>
-      </div>
-    </div>
-    <div class="columns is-centered ">
-      <div class="column is-full-width">
-        <div class="column is-centered ">
-      <img src="./static/images/preliminary.png"
-                class="preliminary-image"
-                alt="preliminary image."/>
-    </div>
-  </div>
-</div>
-</div>
-</section>
 
 <section class="section">
   <div class="container is-max-widescreen">
